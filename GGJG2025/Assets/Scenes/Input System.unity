@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a201711d7b462146b99610b78bdafcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 1
+  playerSpeed: 500
   Arm: {fileID: 1467535731}
 --- !u!50 &520553979
 Rigidbody2D:
@@ -368,8 +368,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 20
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
+  m_LinearDrag: 5
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 7ed3535355d43054dbad36c74bcebabd, type: 2}
   m_IncludeLayers:

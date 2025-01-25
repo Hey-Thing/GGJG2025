@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,23 +32,24 @@ public class PlayerController : MonoBehaviour
     }
     private void OnAiming(InputValue inputValue)
     {
-        aimInput = inputValue.Get<Vector2>() * 10;
+        Vector2 input = inputValue.Get<Vector2>();
+        if (input != Vector2.zero)
+        {
+            aimInput = input;
+        }
+        else
+        {
+            aimInput = Vector2.right;
+        }
         print(aimInput);
     }
-
     private void FixedUpdate()
     {
         if (movementInput != Vector2.zero)
         {
             _rb2D.AddForce(movementInput);
         }
-
-        if (aimInput != Vector2.zero)
-        {
-            float angle = Vector2.Angle(Vector2.zero, aimInput);
-            var eulers = Quaternion.Euler(0, angle, 0);
-            Arm.transform.rotation = eulers;
-        }
+        Quaternion newquat = Quaternion.LookRotation(aimInput, Vector2.up);
+        Arm.transform.rotation = Quaternion.Lerp(Arm.transform.rotation, newquat, Time.deltaTime);
     }
-
 }
