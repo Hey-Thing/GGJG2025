@@ -37,10 +37,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Aiming"",
-                    ""type"": ""Value"",
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
                     ""id"": ""59b28388-e069-4d1c-b85c-1e83d7bc49e0"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -114,114 +114,26 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Right Joystick"",
-                    ""id"": ""5be7921e-b84e-4264-81a2-aa1e07d0dda5"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": """",
+                    ""id"": ""86088982-4071-48f4-a187-151c5ee8d6ef"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": true,
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""941d697f-ca90-4b9d-aa58-06cf0517cb31"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""name"": """",
+                    ""id"": ""b3948a38-66db-4ec4-b28d-39412fc6a8ca"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aiming"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""2f049595-646a-4888-b47e-1d9f7c7db172"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""7260d8f1-2c8b-443e-ad57-9d6ddf83d1ba"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3f8a2526-c3d2-43d4-868c-a1f01227dc40"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Arrow Keys"",
-                    ""id"": ""f3fffa40-e3e8-4c7c-a7d4-0cba11907642"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""383d70d8-0da8-4b3f-9244-5fb0de70d367"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""bc27e6a7-cf15-46d8-a9e1-cbeb08b194ae"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2dfa4a30-f7e2-4466-9acc-22f4f24648ae"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3e5bb576-f4d4-4333-afbc-56cdd409f51b"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aiming"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -231,7 +143,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // PlayerInp
         m_PlayerInp = asset.FindActionMap("PlayerInp", throwIfNotFound: true);
         m_PlayerInp_VertMovement = m_PlayerInp.FindAction("VertMovement", throwIfNotFound: true);
-        m_PlayerInp_Aiming = m_PlayerInp.FindAction("Aiming", throwIfNotFound: true);
+        m_PlayerInp_Jump = m_PlayerInp.FindAction("Jump", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -299,13 +211,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerInp;
     private List<IPlayerInpActions> m_PlayerInpActionsCallbackInterfaces = new List<IPlayerInpActions>();
     private readonly InputAction m_PlayerInp_VertMovement;
-    private readonly InputAction m_PlayerInp_Aiming;
+    private readonly InputAction m_PlayerInp_Jump;
     public struct PlayerInpActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerInpActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @VertMovement => m_Wrapper.m_PlayerInp_VertMovement;
-        public InputAction @Aiming => m_Wrapper.m_PlayerInp_Aiming;
+        public InputAction @Jump => m_Wrapper.m_PlayerInp_Jump;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInp; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,9 +230,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @VertMovement.started += instance.OnVertMovement;
             @VertMovement.performed += instance.OnVertMovement;
             @VertMovement.canceled += instance.OnVertMovement;
-            @Aiming.started += instance.OnAiming;
-            @Aiming.performed += instance.OnAiming;
-            @Aiming.canceled += instance.OnAiming;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IPlayerInpActions instance)
@@ -328,9 +240,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @VertMovement.started -= instance.OnVertMovement;
             @VertMovement.performed -= instance.OnVertMovement;
             @VertMovement.canceled -= instance.OnVertMovement;
-            @Aiming.started -= instance.OnAiming;
-            @Aiming.performed -= instance.OnAiming;
-            @Aiming.canceled -= instance.OnAiming;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IPlayerInpActions instance)
@@ -351,6 +263,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IPlayerInpActions
     {
         void OnVertMovement(InputAction.CallbackContext context);
-        void OnAiming(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

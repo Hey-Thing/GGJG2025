@@ -7,11 +7,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb2D;
     public PlayerInputActions playerControls;
     public float playerSpeed;
+    public float jumpPower;
 
     private Vector2 movementInput;
-    private Vector2 aimInput;
-
-    public Transform Arm;
 
     private void Awake()
     {
@@ -30,18 +28,14 @@ public class PlayerController : MonoBehaviour
         movementInput.x = inputValue.Get<float>() * playerSpeed;
         print(movementInput.x);
     }
-    private void OnAiming(InputValue inputValue)
+    private void OnJump(InputValue inputValue)
     {
-        Vector2 input = inputValue.Get<Vector2>();
-        if (input != Vector2.zero)
+        print(IsGrounded());
+        print(inputValue.isPressed);
+        if (inputValue.isPressed && IsGrounded())
         {
-            aimInput = input;
+            _rb2D.velocity = new Vector2(_rb2D.velocity.x, jumpPower);
         }
-        else
-        {
-            aimInput = Vector2.right;
-        }
-        print(aimInput);
     }
     private void FixedUpdate()
     {
@@ -49,7 +43,11 @@ public class PlayerController : MonoBehaviour
         {
             _rb2D.AddForce(movementInput);
         }
-        Quaternion newquat = Quaternion.LookRotation(aimInput, Vector2.up);
-        Arm.transform.rotation = Quaternion.Lerp(Arm.transform.rotation, newquat, Time.deltaTime);
+    }
+
+    bool IsGrounded()
+    {
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y - 1f);
+        return Physics2D.Raycast(pos, -Vector3.up, 0.2f);
     }
 }
