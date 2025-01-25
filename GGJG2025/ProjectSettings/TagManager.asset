@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 3032256791
+    locked: 0
+  - name: Fence
+    uniqueID: 2316330079
+    locked: 0
+  - name: Bush
+    uniqueID: 2793955155
+    locked: 0
+  - name: Mud
+    uniqueID: 1379978267
+    locked: 0
