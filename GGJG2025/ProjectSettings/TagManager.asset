@@ -53,3 +53,6 @@ TagManager:
   - name: Mud
     uniqueID: 1379978267
     locked: 0
+  - name: enemy
+    uniqueID: 692980079
+    locked: 0
