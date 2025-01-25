@@ -1,41 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class Placeholdermovement : MonoBehaviour
+public class placeHolderMovement : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public float moveInput;
+    private float moveInput;
 
     private Rigidbody2D rb;
 
     private bool facingRight = true;
 
     private bool isGrounded;
-    public Transform groundedCheck;
+    public Transform groundCheck;
     public float checkRadius;
-    public LayerMask whatIsGrounded;
+    public LayerMask whatIsGround;
 
-    void start()
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+
     private void FixedUpdate()
     {
-        isGrounded
-
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            
         moveInput = Input.GetAxis("Horizontal");
         Debug.Log(moveInput);
-        rb.velocity = new Vector2 (moveInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         if(facingRight == false && moveInput > 0)
         {
             Flip();
         }
-        else if(facingRight == false && moveInput < 0)
+        else if(facingRight == true && moveInput < 0)
         {
             Flip();
         }
@@ -48,5 +51,4 @@ public class Placeholdermovement : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
 }
