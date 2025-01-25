@@ -422,6 +422,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 10
+<<<<<<< Updated upstream
+=======
+  speed: 0
+  rb: {fileID: 0}
+  elapsedTime: 0
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
