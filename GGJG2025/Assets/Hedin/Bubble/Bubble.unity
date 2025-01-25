@@ -423,6 +423,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 10
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+  speed: 0
+  rb: {fileID: 0}
+  elapsedTime: 0
+>>>>>>> Stashed changes
 =======
   speed: 0
   rb: {fileID: 0}
